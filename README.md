@@ -2,21 +2,40 @@
 
 ## Overview
 
-\< Available soon \>
+This is the implementation of a Numerical Solver for Incompressible Fluid Navier-Stokes Equations. [See full report here.](report.pdf)
 
 This is part of a project-work for High Performance Scientific Computing In Aerospace course [@Polimi](https://www.polimi.it/)
 
 ### Authors
-Project developed by:
-- \< Available soon \>
+Project mainly developed by:
+- [Enrico Tirri](https://github.com/EnricoTirri)
+- [Andrea Barletta](https://github.com/AndreaBarletta)
 
 ### Problem description, Implementation decisions and Result analysis
 
-Can be found into report - \< Available soon \>
+Can be found into report - [Here](report.pdf)
 
 ### File Structure
 
-* \< Available soon \>
+`root` directory contains:
+* `include` -  headers files
+* `scripts` - helper scripts
+* `src` - source files of headers implementation
+* `tests` - test configuration for maths formulas implementation 
+* `main.cpp` - run solver as application
+* `test.cpp` - run solver as test
+* `runSolver.cpp` - solver routine
+
+
+`include` directory contains:
+* `data` - problem constants, solver configuration, domain data.
+* `equations` - definitions of problem equations
+* `utils` - macros, math operators, other utils (logger, chronometer)
+* `vtk` - vtk exporter
+* `Boundaries.hpp` `ForcingTerm.hpp` `Initialization.hpp` `PressureSolver.hpp` `RungeKuttaa.hpp` `Traits.hpp` -  Main solver components
+* `DataExporter.hpp` `Interpolation.hpp` -  Data exporting routines
+
+
 
 ### Build dependencies
 
@@ -44,7 +63,7 @@ $ make -j %n
 `_FLAGS_` are optional, they can be:
 * `-D FFTW_LIBRARY_PATH='/path/to/libfftw*.so'` - specify fftw library path
 * `-D FFTW_INCLUDE_PATH='/path/to/fftw_headers` - specify fftw headers path
-* `-D USE_FLOAT=(0 or 1)` - specify if you want to use single or double precision (default double) \[make sure you have the necessary fftw library object\]
+* `-D USE_FLOAT=(0 or 1)` - specify if you want to use single or double precision (default double) [make sure you have the necessary fftw library object]
 * `-D MAKE_TEST=(0 or 1)` - specify whether to build the test main file or the release one
 
 `_TEST_FLAGS_` are optional, they can be:
